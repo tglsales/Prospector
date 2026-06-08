@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TGL Prospector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="sidebar.css" />
+  </head>
+  <body>
+    <!-- ── List View ───────────────────────────────────────────── -->
+    <div id="list-view" class="view">
+      <header class="header">
+        <div class="logo-wrap">
+          <img src="icons/icon48.png" class="logo-icon" alt="" />
+          <span class="logo">PROSPECTOR</span>
+        </div>
+        <div style="display: flex; gap: 4px">
+          <button id="btn-search-toggle" class="btn-icon" title="Search">
+            ⌕
+          </button>
+          <button id="btn-stats" class="btn-icon" title="Statistics">≡</button>
+          <button id="btn-refresh" class="btn-icon" title="Refresh">↺</button>
+          <button
+            id="btn-go-to-current"
+            class="btn-icon"
+            title="Open current profile"
+          >
+            →
+          </button>
+        </div>
+      </header>
+      <div id="loading-profile" class="loading-profile hidden">
+        Loading profile…
+      </div>
+      <div id="search-bar" class="search-bar hidden">
+        <input
+          id="search-input"
+          type="text"
+          class="search-input"
+          placeholder="Search…"
+        />
+      </div>
+      <div id="list-stats" class="list-stats hidden"></div>
+      <div id="prospect-list" class="prospect-list">
+        <p class="empty-state">No prospects in sequence.</p>
+      </div>
+    </div>
+
+    <!-- ── Detail View ─────────────────────────────────────────── -->
+    <div id="detail-view" class="view hidden">
+      <header class="header">
+        <button id="btn-back" class="btn-text">← Back</button>
+        <div style="display: flex; gap: 4px">
+          <button id="btn-edit-prospect" class="btn-icon" title="Edit">
+            ✎
+          </button>
+          <button id="btn-save-prospect" class="btn-icon hidden" title="Save">
+            ✓
+          </button>
+        </div>
+      </header>
+
+      <div id="prospect-info" class="prospect-info">
+        <div id="prospect-avatar-wrapper"></div>
+        <div class="prospect-text">
+          <h2 id="prospect-name"></h2>
+          <p id="prospect-role" class="text-muted"></p>
+          <p id="prospect-company" class="text-muted"></p>
+          <input
+            id="edit-role-input"
+            type="text"
+            class="input-inline hidden"
+            placeholder="Role"
+          />
+          <input
+            id="edit-company-input"
+            type="text"
+            class="input-inline hidden"
+            placeholder="Company"
+          />
+          <div id="prospect-actions" class="prospect-actions hidden">
+            <button id="btn-prospect-replied" class="btn-prospect-replied">
+              Replied
+            </button>
+            <button id="btn-prospect-meeting" class="btn-prospect-meeting">
+              Meeting Booked
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shown when the current profile is NOT yet in a sequence -->
+      <div id="new-prospect-form" class="section hidden">
+        <label for="role-input" class="label">Role</label>
+        <input
+          id="role-input"
+          type="text"
+          class="input"
+          placeholder="e.g. Head of Sales"
+        />
+        <label for="company-input" class="label">Company</label>
+        <input
+          id="company-input"
+          type="text"
+          class="input"
+          placeholder="e.g. Acme Corp"
+        />
+        <label for="signal-input" class="label">Signal / context</label>
+        <textarea
+          id="signal-input"
+          class="textarea"
+          placeholder="e.g. They just raised a Series B, or posted about hiring 10 BDRs…"
+        ></textarea>
+        <button id="btn-add-sequence" class="btn-primary">
+          Add to sequence
+        </button>
+      </div>
+
+      <!-- Shown when the prospect is already in a sequence -->
+      <div id="steps-container" class="section hidden">
+        <h3 class="section-title">Sequence</h3>
+        <div id="steps-list"></div>
+      </div>
+
+      <div id="notes-container" class="section hidden">
+        <h3 class="section-title">Notes</h3>
+        <textarea
+          id="notes-input"
+          class="textarea"
+          placeholder="Call outcomes, context, anything useful…"
+          style="height: 80px"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- ── Stats View ──────────────────────────────────────────── -->
+    <div id="stats-view" class="view hidden">
+      <header class="header">
+        <button id="btn-stats-back" class="btn-text">← Back</button>
+        <span class="stats-title">Statistics</span>
+        <div style="width: 48px"></div>
+      </header>
+      <div id="stats-grid" class="stats-grid"></div>
+    </div>
+
+    <script src="sidebar.js"></script>
+  </body>
+</html>

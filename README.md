@@ -2,7 +2,7 @@
 
 Chrome extension for managing LinkedIn outbound sequences. Scrapes profiles automatically, generates personalized messages via an n8n webhook, and tracks each prospect through a 3-touch sequence.
 
-![TGL Prospector sidebar](assets/screenshot.png)
+![List view](assets/screenshot-list.png) ![Profile view](assets/screenshot-profile.png)
 
 ## Installation
 
